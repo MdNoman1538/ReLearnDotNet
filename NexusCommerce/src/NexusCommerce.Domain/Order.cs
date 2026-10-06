@@ -8,12 +8,15 @@ public sealed class Order
     public Address ShippingAddress { get; private set; }
     public IReadOnlyCollection<LineItem> Items => _items.AsReadOnly();
     public string Currency { get; }
+    public string Status {get; private set;}
+    public Money OrderTotal => calculateTotal();
 
-    public Order(Guid id, Address shippingAddress, string currency)
+    public Order(Guid id, Address shippingAddress, string currency, string status)
     {
         Id = id;
         ShippingAddress = shippingAddress;
         Currency = currency.ToUpperInvariant();
+        Status= status:
     }
 
     public void AddItem(LineItem item)
