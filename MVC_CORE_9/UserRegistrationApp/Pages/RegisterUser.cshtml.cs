@@ -1,21 +1,17 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
 
-namespace UserRegistrationApp.Pages
+namespace UserRegistrationApp.Pages;
+
+public class RegisterUserModel : PageModel
 {
-    public class RegisterUserModel : PageModel
+    private readonly ILogger<RegisterUserModel> _logger;
+
+    public RegisterUserModel(ILogger<RegisterUserModel> logger)
     {
-        private readonly ILogger<RegisterUserModel> _logger;
+        _logger = logger;
+    }
 
-        public RegisterUserModel(ILogger<RegisterUserModel> logger)
-        {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
-        }
+    public void OnGet()
+    {
     }
 }
